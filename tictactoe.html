@@ -2,18 +2,31 @@
   <head>
     <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="tictactoe.js"></script>
-    <script type="text/css" src="custom.css"></script>
+    <link rel="stylesheet" type="text/css" href="custom.css"></script>
     <title>Game0rz | TicTacToe</title>
   </head>
 
   <body>
-    <h1>TicTacToe</h1>
-    <button class="play_button" onclick="playTTT()">Click to play!</button>
-    <pre class="row1"></pre>
-    <pre class="row2"></pre>
-    <pre class="row3"></pre>
+    <div class="container">
+      <h1>TicTacToe</h1>
+      <button class="play_button" onclick="playTTT()">Click to play!</button>
+      <button class="reset" onclick="window.location.reload()">Reset!</button>
+      <div>
+        <pre class="board" id="r0c0" onclick="makeMove(0, 0, mark)"></pre>
+        <pre class="board" id="r0c1" onclick="makeMove(0, 1, mark)"></pre>
+        <pre class="board" id="r0c2" onclick="makeMove(0, 2, mark)"></pre>
+        <pre class="board" id="r1c0" onclick="makeMove(1, 0, mark)"></pre>
+        <pre class="board" id="r1c1" onclick="makeMove(1, 1, mark)"></pre>
+        <pre class="board" id="r1c2" onclick="makeMove(1, 2, mark)"></pre>
+        <pre class="board" id="r2c0" onclick="makeMove(2, 0, mark)"></pre>
+        <pre class="board" id="r2c1" onclick="makeMove(2, 1, mark)"></pre>
+        <pre class="board" id="r2c2" onclick="makeMove(2, 2, mark)"></pre>
+      </div>
+      <div>
+        <pre class="winner"></pre>
+      <div>
+    </div>
 
-    <pre class="winner"></pre>
 
   </body>
 </html>

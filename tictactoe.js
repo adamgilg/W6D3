@@ -87,31 +87,49 @@ var ticTacToe = {
       return false;
     };
   }
+
 };
 
+var renderBoard = function(game) {
+  for (var i = 0; i < 3; i++) {
+    for (var j = 0; j < 3; j++) {
+      $('#r' + i + 'c' + j).html(game.board[i][j]);
+    };
+  };
+};
+
+
 var playTTT = function() {
+
+
+
   var game = ticTacToe;
+
 
   var turn = 'x';
 
-  while (game.win(turn) == false) {
-    $('.row1').html(game.board[0]);
-    $('.row2').html(game.board[1]);
-    $('.row3').html(game.board[2]);
-
+  while (true) {
+    renderBoard(game);
     var move = prompt(turn +"'s turn! Where to move? (r, c)");
     move = move.split(", ");
     var row = move[0];
     var col = move[1];
 
     if (game.makeMove(row, col, turn) == true) {
-      turn = 'x' ? 'o' : 'x';
+      if (game.win(turn) == true) {
+        $('.winner').html(turn + " wins");
+        renderBoard(game);
+
+        break;
+      }
+      else {
+        turn = (turn == 'x') ? 'o' : 'x';
+      };
     } else {
       alert("invalid move!");
     };
   };
 
-  $('.winner').html(turn + " is the loser!");
 };
 
 
